@@ -10,6 +10,7 @@ rel="stylesheet">
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
+
 <style>
 
 body{
@@ -82,7 +83,31 @@ body{
 }
 
 </style>
+<script>
+function togglePassword()
+{
+    const password =
+        document.getElementById('password');
 
+    const eyeIcon =
+        document.getElementById('eyeIcon');
+
+    if(password.type === 'password')
+    {
+        password.type = 'text';
+
+        eyeIcon.classList.remove('fa-eye');
+        eyeIcon.classList.add('fa-eye-slash');
+    }
+    else
+    {
+        password.type = 'password';
+
+        eyeIcon.classList.remove('fa-eye-slash');
+        eyeIcon.classList.add('fa-eye');
+    }
+}
+</script>
 </head>
 
 <body>
@@ -121,14 +146,27 @@ body{
         </div>
 
         <div class="mb-3">
-
             <label class="text-white">Password</label>
 
-            <input
-            type="password"
-            name="password"
-            class="form-control">
+            <div class="input-group">
 
+                <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    class="form-control"
+                    required>
+
+                <button
+                    type="button"
+                    class="btn btn-outline-secondary"
+                    onclick="togglePassword()">
+
+                    <i id="eyeIcon" class="fa-solid fa-eye"></i>
+
+                </button>
+
+            </div>
         </div>
 
         <button class="btn btn-primary w-100">

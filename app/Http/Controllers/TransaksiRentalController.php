@@ -106,7 +106,7 @@ $ps = Playstation::findOrFail(
     $subtotal = $durasi * $ps->harga_per_jam;
 
     $mulai = now();
-
+ 
     $selesai = now()->copy()->addMinutes(
         $durasi * 60
     );
